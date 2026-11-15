@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="sjtu_drone_warehouse">
+  <compiler angle="radian" meshdir="/home/vibhu/sim/sjtu_drone/sjtu_drone_description/models/sjtu_drone" autolimits="true" />
+  <option timestep="0.001" gravity="0 0 -9.81" integrator="implicitfast" cone="elliptic" />
+  <size njmax="2000" nconmax="500" />
+  <default>
+    <joint damping="0.02" armature="0.002" />
+    <geom friction="0.8 0.1 0.1" condim="3" />
+    <site size="0.008" rgba="1 0.2 0.1 1" />
+  </default>
+  <asset>
+    <mesh name="drone_visual" file="quadrotor_4.stl" />
+  </asset>
+  <worldbody>
+    <light name="warehouse_sun" pos="0 0 15" dir="0.3 -0.2 -1" directional="true" castshadow="true" diffuse="0.9 0.9 0.85" specular="0.2 0.2 0.2" />
+    <light name="fill" pos="0 -3 8" dir="0 0 -1" directional="true" diffuse="0.45 0.45 0.48" />
+    <geom name="warehouse_floor" type="box" pos="0 0 -0.1" size="12 8 0.1" rgba="0.58 0.60 0.62 1" friction="0.9 0.1 0.1" />
+    <geom name="warehouse_floor_visual" type="box" pos="0 0 -0.1" size="12 8 0.1" rgba="0.58 0.60 0.62 1" />
+    <geom name="north_wall_visual" type="box" pos="0 8 2.5" size="12 0.1 2.5" rgba="0.82 0.83 0.84 1" />
+    <geom name="west_wall_visual" type="box" pos="-12 0 2.5" size="0.1 8 2.5" rgba="0.82 0.83 0.84 1" />
+    <geom name="east_wall_visual" type="box" pos="12 0 2.5" size="0.1 8 2.5" rgba="0.82 0.83 0.84 1" />
+    <geom name="south_wall_left_visual" type="box" pos="-7 -8 2.5" size="5 0.1 2.5" rgba="0.82 0.83 0.84 1" />
+    <geom name="south_wall_right_visual" type="box" pos="7 -8 2.5" size="5 0.1 2.5" rgba="0.82 0.83 0.84 1" />
+    <geom name="rack_row_south_upright_1" type="box" pos="-6.8 -4.4 1.6" size="0.06 0.06 1.6" rgba="0.12 0.25 0.65 1" />
+    <geom name="rack_row_south_upright_2" type="box" pos="6.8 -4.4 1.6" size="0.06 0.06 1.6" rgba="0.12 0.25 0.65 1" />
+    <geom name="rack_row_south_upright_3" type="box" pos="-2.3 -4.4 1.6" size="0.06 0.06 1.6" rgba="0.12 0.25 0.65 1" />
+    <geom name="rack_row_south_upright_4" type="box" pos="2.3 -4.4 1.6" size="0.06 0.06 1.6" rgba="0.12 0.25 0.65 1" />
+    <geom name="rack_row_south_shelf_low" type="box" pos="0 -4.4 0.65" size="7 0.5 0.06" rgba="0.75 0.45 0.15 1" />
+    <geom name="rack_row_south_shelf_mid" type="box" pos="0 -4.4 1.65" size="7 0.5 0.06" rgba="0.75 0.45 0.15 1" />
+    <geom name="rack_row_south_shelf_high" type="box" pos="0 -4.4 2.65" size="7 0.5 0.06" rgba="0.75 0.45 0.15 1" />
+    <geom name="rack_row_middle_upright_a" type="box" pos="-6.8 0 1.6" size="0.06 0.06 1.6" rgba="0.12 0.25 0.65 1" />
+    <geom name="rack_row_middle_upright_b" type="box" pos="-2.3 0 1.6" size="0.06 0.06 1.6" rgba="0.12 0.25 0.65 1" />
+    <geom name="rack_row_middle_upright_c" type="box" pos="2.3 0 1.6" size="0.06 0.06 1.6" rgba="0.12 0.25 0.65 1" />
+    <geom name="rack_row_middle_upright_d" type="box" pos="6.8 0 1.6" size="0.06 0.06 1.6" rgba="0.12 0.25 0.65 1" />
+    <geom name="rack_row_middle_shelf_1" type="box" pos="0 0 0.65" size="7 0.5 0.06" rgba="0.75 0.45 0.15 1" />
+    <geom name="rack_row_middle_shelf_2" type="box" pos="0 0 1.65" size="7 0.5 0.06" rgba="0.75 0.45 0.15 1" />
+    <geom name="rack_row_middle_shelf_3" type="box" pos="0 0 2.65" size="7 0.5 0.06" rgba="0.75 0.45 0.15 1" />
+    <geom name="rack_row_north_upright_1" type="box" pos="-6.8 4.4 1.6" size="0.06 0.06 1.6" rgba="0.12 0.25 0.65 1" />
+    <geom name="rack_row_north_upright_2" type="box" pos="-2.3 4.4 1.6" size="0.06 0.06 1.6" rgba="0.12 0.25 0.65 1" />
+    <geom name="rack_row_north_upright_3" type="box" pos="2.3 4.4 1.6" size="0.06 0.06 1.6" rgba="0.12 0.25 0.65 1" />
+    <geom name="rack_row_north_upright_4" type="box" pos="6.8 4.4 1.6" size="0.06 0.06 1.6" rgba="0.12 0.25 0.65 1" />
+    <geom name="rack_row_north_shelf_low" type="box" pos="0 4.4 0.65" size="7 0.5 0.06" rgba="0.75 0.45 0.15 1" />
+    <geom name="rack_row_north_shelf_mid" type="box" pos="0 4.4 1.65" size="7 0.5 0.06" rgba="0.75 0.45 0.15 1" />
+    <geom name="rack_row_north_shelf_high" type="box" pos="0 4.4 2.65" size="7 0.5 0.06" rgba="0.75 0.45 0.15 1" />
+    <geom name="pallet_left_visual" type="box" pos="-9 -5.8 0.12" size="0.6 0.45 0.12" rgba="0.55 0.32 0.12 1" />
+    <geom name="pallet_right_visual" type="box" pos="9 5.8 0.12" size="0.6 0.45 0.12" rgba="0.55 0.32 0.12 1" />
+    <geom name="ceiling_fixture_1_visual" type="box" pos="-5 0 4.85" size="1.5 0.125 0.03" rgba="0.9 0.9 0.8 1" contype="0" conaffinity="0" />
+    <geom name="ceiling_fixture_2_visual" type="box" pos="5 0 4.85" size="1.5 0.125 0.03" rgba="0.9 0.9 0.8 1" contype="0" conaffinity="0" />
+    <body name="base_link" pos="0 2.2 0.25">
+<!-- ================================= -->
+<!-- 3D LIDAR SENSOR                   -->
+<!-- ================================= -->
+
+<geom name="lidar_visual"
+      type="cylinder"
+      size="0.035 0.025"
+      pos="0 0 0.14"
+      rgba="0.15 0.15 0.15 1"
+      contype="0"
+      conaffinity="0"
+      group="1"/>
+
+<site name="lidar_site"
+      pos="0 0 0.165"
+      quat="1 0 0 0"
+      size="0.006"
+      rgba="1 0 0 1"/>
+      <freejoint name="root" />
+      <inertial pos="0 0 0" mass="1.477" fullinertia="0.1152 0.1152 0.218 0 0 0" />
+      <geom name="visual" type="mesh" mesh="drone_visual" pos="0 0 0.04" contype="0" conaffinity="0" mass="0" rgba="0.2 0.5 0.8 1" />
+      <geom name="collision_body" type="cylinder" pos="0 0 0.005" size="0.075 0.025" mass="0" rgba="0.2 0.5 0.8 0.15" />
+      <site name="imu_site" pos="0 0 0" />
+      <site name="motor_1" pos="0.18 0.18 0" />
+      <site name="motor_2" pos="-0.18 0.18 0" />
+      <site name="motor_3" pos="-0.18 -0.18 0" />
+      <site name="motor_4" pos="0.18 -0.18 0" />
+      <camera name="front_camera" pos="0.2 0 0" xyaxes="0 -1 0 0 0 1" />
+    </body>
+  </worldbody>
+  <sensor>
+    <framepos name="position" objtype="body" objname="base_link" />
+    <framelinvel name="linear_velocity" objtype="body" objname="base_link" />
+    <framequat name="orientation" objtype="body" objname="base_link" />
+    <gyro name="imu_gyro" site="imu_site" />
+    <accelerometer name="imu_accel" site="imu_site" />
+  </sensor>
+</mujoco>

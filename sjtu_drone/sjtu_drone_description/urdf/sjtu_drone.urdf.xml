@@ -1,0 +1,80 @@
+
+<mujoco model="sjtu_drone">
+
+  <compiler angle="radian"
+            coordinate="local"
+            meshdir="../models/sjtu_drone"/>
+
+  <option integrator="implicitfast"/>
+
+  <asset>
+    <mesh name="quadrotor_4_1"
+          file="quadrotor_4.stl"/>
+  </asset>
+
+  <worldbody>
+
+    <body name="base_footprint">
+
+      <body name="base_link">
+
+        <inertial pos="0 0 0"
+                  mass="1.477"
+                  fullinertia="0.1152 0.1152 0.218 0 0 0"/>
+
+        <!-- Drone visual model -->
+        <geom name="drone_visual"
+              type="mesh"
+              mesh="quadrotor_4_1"
+              pos="0 0 0.04"
+              contype="0"
+              conaffinity="0"
+              rgba="0.2 0.5 0.8 1"
+              group="1"/>
+
+        <!-- Existing sonar frame -->
+        <body name="sonar_link"
+              pos="0 0 0"
+              quat="0.707107 0 0.707107 0">
+        </body>
+
+        <!-- Existing front camera frame -->
+        <body name="front_cam_link"
+              pos="0.2 0 0"
+              quat="1 0 0 0">
+        </body>
+
+        <!-- Existing bottom camera frame -->
+        <body name="bottom_cam_link"
+              pos="0 0 0"
+              quat="0.707107 0 0.707107 0">
+        </body>
+
+        <!-- ================================= -->
+        <!--          3D LIDAR                  -->
+        <!-- ================================= -->
+
+        <!-- LiDAR housing: visual only -->
+        <geom name="lidar_visual"
+              type="cylinder"
+              size="0.035 0.025"
+              pos="0 0 0.14"
+              rgba="0.15 0.15 0.15 1"
+              contype="0"
+              conaffinity="0"
+              group="1"/>
+
+        <!-- LiDAR sensing reference frame -->
+        <site name="lidar_site"
+              pos="0 0 0.165"
+              quat="1 0 0 0"
+              size="0.006"
+              rgba="1 0 0 1"/>
+
+      </body>
+    </body>
+
+  </worldbody>
+
+</mujoco>
+

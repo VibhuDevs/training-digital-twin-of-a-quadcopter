@@ -1,0 +1,11 @@
+# MuJoCo ray-cast LiDAR parameters. Angles are degrees.
+horizontal_fov_deg: 360.0
+vertical_fov_deg: [-15.0, 15.0]
+horizontal_resolution_deg: 0.5
+vertical_channels: 16
+max_range_m: 50.0
+min_range_m: 0.1
+scan_frequency_hz: 10.0
+point_frame: lidar_link
+accumulate_map: false
+max_accumulated_points: 200000
